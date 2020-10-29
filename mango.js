@@ -1,4 +1,4 @@
-class Box {
+class Mango {
     constructor(x, y, width, height) {
       var options = {
           'restitution':0.8,
@@ -10,6 +10,7 @@ class Box {
       this.width = width;
       this.height = height;
       
+      
       World.add(world, this.body);
     }
     display(){
@@ -20,4 +21,3 @@ class Box {
       pop();
     }
   };
-  

@@ -13,11 +13,10 @@ class Tree {
     }
     display(){
       var pos =this.body.position;
-      rectMode(CENTER);
+      
       fill(255);
       imageMode(CENTER);
-      image(this.image, 0, 0, this.width, this.height);
-      rect(pos.x, pos.y, this.width, this.height);
-      pop();
+      image(this.image, pos.x, pos.y, this.width, this.height);
+      
     }
   };

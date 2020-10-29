@@ -1,31 +1,31 @@
-class Rock
-{
-    constructor(bodyA, pointB){
-        var options = {
-            bodyA: bodyA,
-            pointB: pointB,
-            stiffness: 0.04,
-            length: 10
-        }
-        this.pointB=pointB
-        this.sling = Constraint.create(options);
-        World.add(world, this.rock);
-    }
+class Rock {
+    constructor(x, y) {
+      var options = {
+        'density':1.5,
+        'friction': 1.0,
+        'restitution':0.5
+      };
+      this.body = Bodies.rectangle(x, y, 50, 50, options);
+      this.width = 50;
+      this.height = 50;
 
-    display()
-    {
-        if(this.sling.bodyA)
-        {
-
-        
-        var pointA = this.rock.bodyA.position;
-        var pointB = this.pointB;
-        strokeWeight(4);
-        line(pointA.x, pointA.y, pointB.x, pointB.y);
-        }
-    }
-    fly()
-    {
-        this.rock.bodyA=null
-    }
-}
+      this.rockImg=loadImage("stone.png")
+      World.add(world, this.body);
+    };
+    display(){
+      var pos = this.body.position;
+      pos.x = mouseX;
+      pos.y = mouseY;
+      var angle = this.body.angle;
+  
+      push();
+      translate(pos.x, pos.y);
+      rotate(angle);
+      strokeWeight(3);
+      stroke('blue')
+      fill('red')
+      imageMode(CENTER)
+      image(this.rockImg, 0, 0, this.width, this.height);
+      pop();
+    };
+  };
